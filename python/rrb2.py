@@ -5,6 +5,7 @@ import time
 
 class RRB2:
 	
+    STDBY_PIN = 18
     LEFT_GO_PIN = 17
     LEFT_DIR_PIN = 4
     RIGHT_GO_PIN = 10
@@ -17,7 +18,6 @@ class RRB2:
     OC2_PIN = 27
     OC2_PIN_R1 = 21
     OC2_PIN_R2 = 27
-    TRIGGER_PIN = 18
     ECHO_PIN = 23
     left_pwm = 0
     right_pwm = 0
@@ -27,11 +27,11 @@ class RRB2:
         GPIO.setwarnings(False)
 
         GPIO.setup(self.LEFT_GO_PIN, GPIO.OUT)
-        self.left_pwm = GPIO.PWM(self.LEFT_GO_PIN, 500)
+        self.left_pwm = GPIO.PWM(self.LEFT_GO_PIN, 200)
         self.left_pwm.start(0)
         GPIO.setup(self.LEFT_DIR_PIN, GPIO.OUT)
         GPIO.setup(self.RIGHT_GO_PIN, GPIO.OUT)
-        self.right_pwm = GPIO.PWM(self.RIGHT_GO_PIN, 500)
+        self.right_pwm = GPIO.PWM(self.RIGHT_GO_PIN, 200)
         self.right_pwm.start(0)
         GPIO.setup(self.RIGHT_DIR_PIN, GPIO.OUT)
 
@@ -48,9 +48,9 @@ class RRB2:
 
         GPIO.setup(self.SW1_PIN, GPIO.IN)
         GPIO.setup(self.SW2_PIN, GPIO.IN)
-        GPIO.setup(self.TRIGGER_PIN, GPIO.OUT)
         GPIO.setup(self.ECHO_PIN, GPIO.IN)
-
+        GPIO.setup(self.STDBY_PIN, GPIO.OUT)
+        GPIO.output(self.STDBY_PIN, True)
 
 
     def set_motors(self, left_go, left_dir, right_go, right_dir):
