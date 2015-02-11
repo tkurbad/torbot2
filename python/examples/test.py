@@ -69,13 +69,13 @@ def test_motors():
     rr.set_motors(0, 0, 0, 0)
     confirm("Are Both motors stopped?")
     
-    rr.set_motors(1, 0, 1, 0)
+    rr.set_motors(0.6, 1, 0.6, 1)
     confirm("Are Both motors going forwards?")
 
-    rr.set_motors(0.5, 0, 1, 0)
+    rr.set_motors(0.2, 1, 0.6, 1)
     confirm("Is one motor going forwards at half speed?")
     
-    rr.set_motors(1, 1, 1, 1)
+    rr.set_motors(0.5, 0, 0.5, 0)
     confirm("Are both motors going backwards?")
     
     rr.set_motors(0, 0, 0, 0)
@@ -97,9 +97,9 @@ def testI2C():
     ex_8x8_pixels.display_pattern()
     confirm("Did the display draw a line at a time?")
 
-test_leds()
+#test_leds()
 #test_oc()
-test_switches()
+#test_switches()
 test_motors()
-test_ranger()
+#test_ranger()
 #testI2C()
