@@ -1,5 +1,4 @@
 TorBot V2
 =========
 
-Derived from Simon Monk's RaspiRobot Board V2 (s. README_simon.md)
-
+Moved to https://git.tk-webart.de:7443/Robotics/torbot2
